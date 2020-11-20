@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react';
+import cln from 'classnames';
 
-function List({data, list}) {
+function List({data, list, onClick}) {
+    const [activeItem, setActiveItem] = useState(null);
+
     return (
         <React.Fragment>
             <div className="list__main">
@@ -14,10 +17,15 @@ function List({data, list}) {
                     <ul>
                         {
                             data.sort((a, b) => (a.historyNumber - b.historyNumber)).map((patient, index) => (
-                                <li>
-                                    <p>{patient.historyNumber}</p>
-                                    <p>{patient.firstName} {patient.lastName}</p>
-                                    {list === 'presents' ? patient.bedNumber : list === 'quitting' ? patient.cause : ''}
+                                <li className={cln('list__item', {
+                                    active: activeItem === index && 'active'
+                                })} onClick={() => {
+                                    setActiveItem(index);
+                                    onClick(patient);
+                                }}>
+                                    <p className="list__item--section">{patient.historyNumber}</p>
+                                    <p className="list__item--section">{patient.firstName} {patient.lastName}</p>
+                                    <p className="list__item--section">{list === 'presents' ? patient.bedNumber : list === 'quitting' ? patient.cause : ''}</p>
                                 </li>
                             ))
                         }

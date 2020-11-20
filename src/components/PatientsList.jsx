@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import cln from 'classnames';
 import {List} from './index';
 
-function PatientsList({presents, quitting}) {
+function PatientsList({presents, quitting, onClick}) {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
@@ -30,7 +30,8 @@ function PatientsList({presents, quitting}) {
             }
             list={
                 activeTab === 0 ? 'presents' : activeTab === 1 ? 'quitting' : ''
-            } />
+            }
+            onClick={onClick} />
         </div>
     )
 }
