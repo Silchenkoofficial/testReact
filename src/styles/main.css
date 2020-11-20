@@ -47,10 +47,12 @@ li {
   background-color: #f3f3f3;
 }
 .patients .closed {
-  flex: 0 0 5%;
+  flex: 0 0 1%;
 }
 .patients .closed .patients__info--top {
-  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .patients .closed svg {
   transform: rotate(180deg);
@@ -108,6 +110,7 @@ li {
   padding: 0 20px;
   font-size: 12px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .patients__list .tabs .tab.active {
   color: #33beff;

@@ -44,9 +44,11 @@ ul, li {
     justify-content: space-evenly;
     background-color: rgb(243, 243, 243);
     .closed {
-        flex: 0 0 5%;
+        flex: 0 0 1%;
         .patients__info--top {
-            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         svg {
             transform: rotate(180deg);
@@ -103,6 +105,7 @@ ul, li {
                 padding: 0 20px;
                 font-size: 12px;
                 text-transform: uppercase;
+                cursor: pointer;
                 &.active {
                     color: @blue;
                     border-bottom: 2px solid @blue;
